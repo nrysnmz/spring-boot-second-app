@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
+    @Autowired
     private EmployeeRepository employeeRepository;
 
     public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
@@ -50,8 +51,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void deleteEmployee(long id) {
-        employeeRepository.findAllById(id).orElseThrow(() ->
-                new ResourceNotFoundException("Employee" ,"Id" , id);
+
+        employeeRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("Employee" ,"Id" , id));
     }
 }
 

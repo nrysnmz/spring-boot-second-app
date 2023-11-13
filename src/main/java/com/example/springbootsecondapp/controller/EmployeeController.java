@@ -1,6 +1,6 @@
 package com.example.springbootsecondapp.controller;
 
-import com.example.springbootsecondapp.exception.ResourceNotFoundException;
+
 import com.example.springbootsecondapp.model.Employee;
 import com.example.springbootsecondapp.service.impl.EmployeeService;
 import com.example.springbootsecondapp.service.impl.EmployeeServiceImpl;
