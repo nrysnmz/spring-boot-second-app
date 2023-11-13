@@ -1,5 +1,6 @@
 package com.example.springbootsecondapp.controller;
 
+import com.example.springbootsecondapp.exception.ResourceNotFoundException;
 import com.example.springbootsecondapp.model.Employee;
 import com.example.springbootsecondapp.service.impl.EmployeeService;
 import com.example.springbootsecondapp.service.impl.EmployeeServiceImpl;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequestMapping("/api/employees")
 @RestController
@@ -29,7 +31,16 @@ public class EmployeeController {
     //build get all employees REST API
     @GetMapping
     public List<Employee> getAllEmployees() {
+
         return employeeService.getAllEmployees();
+    }
+
+    //build get all employee by id REST API
+    @GetMapping("{id}")
+    public Employee getEmployeeById(@PathVariable("id")long employeeId ) {
+
+            return new ResponseEntity<Employee>(employeeService.getEmployeeById(employeeId), HttpStatus.OK).getBody();
+
     }
 
 }
