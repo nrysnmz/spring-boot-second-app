@@ -35,12 +35,13 @@ public class EmployeeController {
         return employeeService.getAllEmployees();
     }
 
-    //build get all employee by id REST API
+    //build get employee by id REST API
     @GetMapping("{id}")
-    public Employee getEmployeeById(@PathVariable("id")long employeeId ) {
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable("id")long employeeId ) {
 
-            return new ResponseEntity<Employee>(employeeService.getEmployeeById(employeeId), HttpStatus.OK).getBody();
+            return new ResponseEntity<Employee>(employeeService.getEmployeeById(employeeId), HttpStatus.OK);
 
     }
+    //build update employee REST API
 
 }
