@@ -35,6 +35,7 @@ public class EmployeeController {
         return employeeService.getAllEmployees();
     }
 
+
     //build get employee by id REST API
     @GetMapping("{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") long employeeId) {
